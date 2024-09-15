@@ -42,6 +42,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#e-book">E-Book</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#testimoni">Testimoni</a>
+                </li>
                 <?php if (isset($_SESSION['id_user'])): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="pembelajaran.php">Pembelajaran Saya</a>
@@ -58,7 +61,7 @@
                     </li>
                 <?php else: ?>
                   <li class="nav-item">
-                    <a class="nav-link" href="login/login-page.php">Login</a>
+                    <a class="nav-link mr-5" href="login/login-page.php">Login</a>
                   </li>
                 <?php endif; ?>
               </ul>

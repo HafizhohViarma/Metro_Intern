@@ -3,6 +3,7 @@ session_start();
 include 'koneksi.php'; 
 
 $id_user = $_SESSION['id_user']; 
+if(isset($_SESSION['id_user'])){
 
 // Query untuk mengambil transaksi dengan tipe 'video'
 $query = "
@@ -209,3 +210,7 @@ $resultebook = mysqli_query($koneksi, $queryebook);
     <script src="js/theme.js"></script>
 </body>
 </html>
+<?php
+} else {
+    header("Location: login/login-page.php");
+}

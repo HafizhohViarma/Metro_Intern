@@ -169,7 +169,7 @@ button:focus {
       .header_area .navbar .nav .nav-item .nav-link {
         font: 500 14px/80px "Rubik", sans-serif;
         text-transform: capitalize;
-        color: #002347;
+        color: white;
         padding: 0px;
         display: inline-block; }
         @media (max-width: 991px) {
@@ -260,7 +260,7 @@ button:focus {
     top: -70px;
     left: 0;
     right: 0;
-    background: #ffffff;
+    background: #002347;
     -webkit-transform: translateY(70px);
     -moz-transform: translateY(70px);
     -ms-transform: translateY(70px);
@@ -340,7 +340,7 @@ button:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* Transparansi hitam 40% */
+  background-color: rgba(0, 0, 0, 0.7); /* Transparansi hitam 40% */
   z-index: 2;
 }
 
@@ -361,11 +361,12 @@ button:focus {
 .home_banner_area .banner_inner .banner_content h2 {
   font-size: 48px;
   font-weight: 500;
+  color: white;
 }
 
 .home_banner_area .banner_inner .banner_content p {
   font-size: 20px;
-  color: #002347;
+  color: white;
   font-weight: 500;
 }
 
@@ -3024,7 +3025,8 @@ h6 {
     padding: 0px;
     cursor: pointer;
     margin-top: 27px;
-    margin-bottom: 23px; }
+    margin-bottom: 23px;
+    background: #002347; }
 
   .header_area {
     position: absolute; }

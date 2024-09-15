@@ -103,7 +103,7 @@
             >
             <ul class="nav navbar-nav menu_nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Belanja</a>
+                <a class="nav-link" href="#">Video & E-Book</a>
               </li>
               </ul>
             </div>
@@ -121,10 +121,10 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="banner_content text-center">
-                <h2>Belanja Sekarang</h2>
+                <h2>Akses Video & E-Book</h2>
                 <div class="page_link">
                   <a href="index.php">Home</a>
-                  <a href="courses.php">Detail Kelas</a>
+                  <a href="courses.php">Lihat Daftar Kelas</a>
                 </div>
               </div>
             </div>
@@ -188,7 +188,7 @@
         </div>
 
         <!-- Menampilkan Kelas -->
-        <div class="section-top-border">
+        <!-- <div class="section-top-border">
         <h4>Pilihan Kelas</h4>
         <div class="row">
           <?php while ($row = mysqli_fetch_assoc($result_kelas)): ?>
@@ -208,7 +208,7 @@
           </div>
           <?php endwhile; ?>
         </div>
-        </div>
+        </div> -->
       </div>
       </div>
 

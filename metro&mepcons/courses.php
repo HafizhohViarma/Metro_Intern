@@ -17,7 +17,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="icon" href="img/mepcons_metro_logo.png" type="image/png" />
-    <title>Detail Kelas</title>
+    <title>Opsi Akses</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -27,6 +27,8 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -58,7 +60,7 @@
             >
             <ul class="nav navbar-nav menu_nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#tentang-kami">Detail Kelas</a>
+                <a class="nav-link" href="#">Detail Kelas</a>
               </li>
             </ul>
             </div>
@@ -79,7 +81,7 @@
                 <h2>Tingkatkan Keahlian Teknik Anda dengan Kelas Terintegrasi</h2>
                 <div class="page_link">
                   <a href="index.php">Home</a>
-                  <a href="courses.html">Detail Kelas</a>
+                  <!-- <a href="">Detail Kelas</a> -->
                 </div>
               </div>
             </div>
@@ -92,8 +94,9 @@
     <!--================ Start Content Courses Area =================-->
     <div class="mt-5">
       <div class="container">
-        <p class="text-center">Kelas ini dirancang untuk memberikan pemahaman mendalam tentang teknik terbaru, dipandu oleh pengajar berpengalaman dari MEPCONS. Anda bisa memilih untuk mengikuti seluruh kelas, atau hanya membeli materi video dan ebook sesuai kebutuhan Anda.</p>
-        <div class="row justify-content-center">
+        <p class="text-center">Kelas ini dirancang untuk memberikan pemahaman mendalam tentang teknik terbaru, dipandu oleh pengajar berpengalaman dari MEPCONS. Anda bisa memilih untuk mengikuti seluruh kelas, atau hanya membeli materi video dan ebook sesuai kebutuhan Anda. Pilih paket yang sesuai dengan kebutuhan Anda. Dapatkan diskon khusus jika membeli materi video dan ebook sekaligus, atau ikuti seluruh kelas untuk pengalaman belajar yang lengkap.</p>
+        <p class="text-center"></p>
+        <!-- <div class="row justify-content-center">
           <div class="col-lg-4 col-md-6">
             <div class="single_feature">
               <div class="desc">
@@ -128,23 +131,26 @@
                 </p>
               </div>
             </div>
-          </div>
-          <p class="text-center">Pilih paket yang sesuai dengan kebutuhan Anda. Dapatkan diskon khusus jika membeli materi video dan ebook sekaligus, atau ikuti seluruh kelas untuk pengalaman belajar yang lengkap.</p>
-          <div class="mt-3 mb-3">
-            <a href="belanja.php" class="primary-btn2 mb-3 mb-sm-0">
-              <i class="fas fa-shopping-cart"></i> Belanja Sekarang
+          </div> 
+        </div>-->
+        <div class="d-flex justify-content-center about-generic-area mt-3 mb-3">
+          <a href="belanja.php" class="primary-btn2 mb-3 mb-sm-0 mr-3">
+            <i class="bi bi-bookmarks mr-2"></i>Akses Video & E-Book
+          </a>
+          <?php if (isset($_SESSION['email'])): ?>
+            <a href="daftar_kelas.php" class="btn primary-btn2">
+              <i class="bi bi-journal-plus"></i> Daftar Kelas
             </a>
-            <?php if (isset($_SESSION['email'])): ?>
-                <!-- Mengarahkan ke daftar_kelas.php tanpa menambahkan id_kelas -->
-                <a href="daftar_kelas.php" class="btn primary-btn2">Daftar Kelas</a>
-            <?php else: ?>
-                <!-- Mengarahkan ke halaman login jika user belum login -->
-                <a href="login/login-page.php" class="btn primary-btn" onclick="return confirm('Silakan login terlebih dahulu untuk mendaftar Kelas.')">Daftar Kelas</a>
-            <?php endif; ?>
-          </div>
+          <?php else: ?>
+            <!-- Mengarahkan ke halaman login jika user belum login -->
+            <a href="login/login-page.php" class="btn primary-btn" onclick="return confirm('Silakan login terlebih dahulu untuk mendaftar Kelas.')">
+              <i class="bi bi-journal-plus"></i> Daftar Kelas
+            </a>
+          <?php endif; ?>
         </div>
       </div>
-    <!--================ End Content Area =================-->
+    </div>
+        <!--================ End Content Area =================-->
 
     <!--================ Start footer Area  =================-->
     <footer class="footer-area section_gap">

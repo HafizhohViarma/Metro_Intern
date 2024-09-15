@@ -6,7 +6,6 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // Cek apakah data yang diinputkan sesuai dengan yang ada di database
-// Cek apakah data yang diinputkan sesuai dengan yang ada di database
 $query = "SELECT * FROM users WHERE email='$email'";
 $users = mysqli_query($koneksi, $query);
 
@@ -29,6 +28,7 @@ if(mysqli_num_rows($users) > 0) {
         } else {
             header("Location: ../index.php");
         }
+        exit;
     } else {
         echo "<script>
             alert('Email atau password salah');

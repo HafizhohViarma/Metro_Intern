@@ -59,53 +59,126 @@ if (isset($_GET['id_kelas'])) {
     <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-        body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/cad.jpg');
-        background-size: cover;
-        background-position: center;
-        }
-        .detail-produk h1 {
-            color: #FFFFFF; 
-        }
-        .card {
-        background-color: #FFFFFF; 
-        max-width: 900px;
-        margin: 0 auto; 
-        }
-        .card-body {
-            color: black;
-        }
-    </style>
   </head>
 <body>
-    <div class="container mt-5 text-center detail-produk">
-        <h1>Detail Kelas</h1>
-    </div>
-    <div class="card mb-3 container ">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="img/<?php echo $kelas['sampul_kelas']; ?>" class="img-fluid rounded-start mt-4 mb-4" alt="<?php echo $kelas['judul_kelas']; ?>">
+<header class="header_area white-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand" href="index.php">
+              <img src="img/mepcons_metro_logo.png" alt="" style="width: 160px;"/>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span> <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Daftar Kelas</a>
+              </li>
+              </ul>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $kelas['judul_kelas']; ?></h5>
-                    <p class="card-text"><?php echo $kelas['deskripsi_kelas']; ?></p>
-                    <p class="card-text">Jadwal : <?php echo $kelas['jadwal']; ?></p>
-                    <p class="card-text">Harga: Rp. <?php echo number_format($kelas['harga_kelas']); ?>.000</p>
-                    <p class="card-text"><i class="fas fa-check"></i>Kelas Terpandu</p>
-                    <p class="card-text"><i class="fas fa-check"></i>Full Tutorial</p>
-                    <a href="belanja.php" class="genric-btn success circle">lainnya</a>
-                    <a href="#" class="genric-btn danger circle" data-toggle="modal" data-target="#modalbeli">
-                        <i class="fas fa-plus mr-1"></i>Daftar Sekarang
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Detail Kelas</h2>
+                <div class="page_link">
+                  <a href="index.php">Home</a>
+                  <a href="daftar_kelas.php">Lihat kelas lainnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="course_details_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 course_details_left">
+                    <div class="main_image">
+                        <img src="img/<?php echo $kelas['sampul_kelas']; ?>" class="img-fluid rounded-start" alt="<?php echo $kelas['judul_kelas']; ?>" style="width: 800px; height: 400px;">
+                    </div>
+                    <div class="content_wrapper">
+                        <h4 class="title">Tujuan</h4>
+                        <div class="content">
+                        <?php echo $kelas['deskripsi_kelas']; ?>
+                        </div>
+                </div>
+                </div>
+
+                <div class="col-lg-4 right-contents">
+                    <ul>
+                        <li>
+                            <a class="justify-content-between d-flex " href="#">
+                                <p>Judul Kelas</p>
+                                <span class="or"><?php echo $kelas['judul_kelas']; ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Harga Kelas</p>
+                                <span class="text-danger"><?php echo $kelas['harga_kelas']; ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Jadwal Kelas</p>
+                                <span><?php echo $kelas['jadwal']; ?></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" data-toggle=modal class="primary-btn ml-sm-1 ml-0" data-target=#modalbeli>
+                      <i class="bi bi-plus"></i> Daftar Kelas
                     </a>
+
+                        <div class="feedeback">
+                            <h6>Your Feedback</h6>
+                            <textarea name="feedback" class="form-control" cols="10" rows="10"></textarea>
+                            <div class="mt-10 text-right">
+                                <a href="#" class="primary-btn2 text-right rounded-0 text-white">Submit</a>
+                            </div>
+                            <div class="mt-5 text-right">
+                                <a href="daftar_kelas.php" class="primary-btn text-right rounded-0 bi-arrow-right">Daftar Kelas lainnya</a>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    
+    
+
 
     <!-- modal -->
     <div class="modal fade" id="modalbeli" tabindex="-1" role="dialog" aria-labelledby="modalbeliLabel" aria-hidden="true">
@@ -182,6 +255,27 @@ if (isset($_GET['id_kelas'])) {
             </div>
         </div>
     </div>
+
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div>
+          <h4 class="text-white">Hubungi Kami</h4>
+          <p>metroindo.software@gmail.com | +62 822-8960-8096 | @metrosoftware</p>
+        </div>
+        <div class="row footer-bottom d-flex justify-content-between">
+          <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by Metro Indonesian Software
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <p>Follow Us</p>
+            <a href="#"><i class="ti-facebook"></i></a>
+            <a href="#"><i class="ti-twitter"></i></a>
+            <a href="#"><i class="ti-dribbble"></i></a>
+            <a href="#"><i class="ti-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
 <!-- Optional JavaScript -->

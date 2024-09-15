@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
     <style>
       .icon i {
-    font-size: 3rem; /* Sesuaikan ukuran dengan kebutuhan, contoh 2rem */
+    font-size: 3rem; 
     color : #002347;
     }
     
@@ -61,7 +61,7 @@
                   Gabung dengan ribuan profesional yang telah mengembangkan keahlian mereka melalui kelas ini. Akses materi video, ebook, atau ikut langsung dalam kelas bersama para ahli.
                 </p>
                 <div>
-                  <a href="courses.php" class="primary-btn2 mb-3 mb-sm-0">Lihat Detail Kelas</a>
+                  <a href="courses.php" class="primary-btn mb-3 mb-sm-0">Lihat Daftar Kelas</a>
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@
               <div class="col-lg-6 col-md-6">
               <div class="single_feature">
                   <div class="icon">
-                      <i class="bi bi-award"></i>
+                  <span class="flaticon-book"></span>
                   </div>
                   <div class="desc">
                       <h4 class="mt-3">Sertifikasi Resmi</h4>
@@ -203,10 +203,17 @@
             }
             ?>
         </div>
-        <div class="mb-5 row justify-content-center">
-            <a href="courses.php" class="primary-btn mb-3 mb-sm-0">
-                <span class="icon-class"></span> Lihat Detail Kelas
+        <div class="mb-5 row justify-content-center mt-4">
+        <?php if(isset($_SESSION['email'])): ?>
+            <a href="daftar_kelas.php" class="primary-btn arrow mb-3 mb-sm-0 mr-5">
+                <span class="icon-class"></span> Lihat Kelas lainnya
             </a>
+        <?php else: ?>
+            <a href="login/login-page.php" class="btn primary-btn" onclick="return confirm('Silakan login terlebih dahulu untuk melihat daftar kelas.')">Lihat Kelas lainnya</a>
+        <?php endif; ?>
+            <!-- <a href="courses.php" class="primary-btn2 mb-3 mb-sm-0">
+              <i class="fas fa-shopping-cart"></i> Belanja Sekarang
+            </a> -->
         </div>
     </div>
         <!-- End Daftar Kelas -->
@@ -223,32 +230,29 @@
                   </p>
                   <div class="mt-4 mb-4">
                     <a href="belanja.php" class="btn primary-btn">
-                      <i class="ti-shopping-cart"></i> Belanja Sekarang
+                      <i class="bi bi-bookmarks mr-2"></i>Akses E-Book dan Video
                     </a>
                   </div>                                    
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </section><br>
         <!-- End e-book Kelas -->
-
-        
-
         <!-- Start Testimoni Kelas -->
-          <!-- <div class="container" id="testi">
+          <div class="container" id="testimoni">
             <div class="main_title mt-5 justify-content-center">
               <h2 class="mb-3">Apa Kata Mereka?</h2>
               <p>
                 Dengarkan kisah sukses dari para peserta yang telah meningkatkan keahlian mereka bersama kami.
               </p>
             </div>
-              <div class="row justify-content-center">
-                <a href="courses.html" class="primary-btn2">Lihat Testimoni</a>
+            <div class="row justify-content-center">
+                <a href="testimonial.php" class="primary-btn2">Lihat Testimoni</a>
               </div>
           </div>
-        </div> -->
+        </div>
+      </div>
         <!-- End Testimoni Kelas -->
 
     <!--================ Start footer Area  =================-->

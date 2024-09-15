@@ -4,17 +4,13 @@
 
   $id_user = $_SESSION['id_user'];
 
-  // syntax untuk menampilkan 1 data di bagian atas halaman
-  $query_top = "SELECT * FROM tb_kelas ORDER BY id_kelas ASC LIMIT 1";
-  $result_top = mysqli_query($koneksi, $query_top);
-  $top_class = mysqli_fetch_assoc($result_top);
-
   //query untuk mengambil semua data untuk ditampilkan
   $query = "SELECT * FROM tb_kelas ORDER BY id_kelas ASC";
   $result = mysqli_query($koneksi, $query);
+  $class = mysqli_fetch_assoc($result);
   
   $query_user = "
-    SELECT users.nama, tb_transaksi.tipe_produk, tb_kelas.judul_kelas, tb_kelas.deskripsi_kelas, tb_kelas.harga_kelas, tb_kelas.id_kelas
+    SELECT users.nama, tb_transaksi.tipe_produk, tb_kelas.judul_kelas, tb_kelas.deskripsi_kelas, tb_kelas.harga_kelas, tb_kelas.id_kelas, tb_kelas.sampul_kelas
     FROM users 
     JOIN tb_transaksi ON users.id_user = tb_transaksi.id_user
     JOIN tb_kelas ON tb_transaksi.id_kelas = tb_kelas.id_kelas 
@@ -96,8 +92,8 @@
                 <h2>Daftar Kelas</h2>
                 <div class="page_link">
                   <a href="index.php">Home</a>
-                  <a href="courses.html">Detail Kelas</a>
-                  <a href="#">Daftar Kelas</a>
+                  <a href="courses.php">Opsi Lainnya</a>
+                  <!-- <a href="#">Daftar Kelas</a> -->
                 </div>
               </div>
             </div>
@@ -108,147 +104,32 @@
     <!--================End Home Banner Area =================-->
 
     <!--================ Start Course Details Area =================-->
-    <section class="course_details_area section_gap">
-        <div class="container">
+    <div class="container">
+    <div class="section-top-border">
+            <h4>Daftar Kelas untuk Anda</h4>
             <div class="row">
-                <div class="col-lg-8 course_details_left">
-                    <div class="main_image">
-                        <img class="img-fluid" src="img/courses/course-details.jpg" alt="">
-                    </div>
-                    <div class="content_wrapper">
-                        <h4 class="title">Tujuan</h4>
-                        <div class="content">
-                            <?php echo $top_class['deskripsi_kelas']; ?>
-                            <br>
-                        </div>
-
-                        <h4 class="title">Daftar Kelas lainnya</h4>
-                        <div class="content">
-                            <ul class="course_list">
-                                <?php while($kelas = mysqli_fetch_assoc($result)) { ?>
-                                  <li class="justify-content-between d-flex">
-                                      <p><?php echo $kelas['judul_kelas']; ?></p>
-                                      <a class="primary-btn text-uppercase" href="detail_kelas.php?id_kelas=<?php echo $kelas['id_kelas']?>">View Details</a>
-                                  </li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                </div>
-                </div>
-
-                <div class="col-lg-4 right-contents">
-                    <ul>
-                        <li>
-                            <a class="justify-content-between d-flex" href="#">
-                                <p>Judul Kelas</p>
-                                <span class="or"><?php echo $top_class['judul_kelas']; ?></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="justify-content-between d-flex" href="#">
-                                <p>Harga Kelas</p>
-                                <span class="text-danger"><?php echo $top_class['harga_kelas']; ?></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="justify-content-between d-flex" href="#">
-                                <p>Jadwal Kelas</p>
-                                <span><?php echo $top_class['jadwal']; ?></span>
-                            </a>
-                        </li>
-                    </ul>
-                    <a href="#modal-daftar" data-toggle=modal class="primary-btn ml-sm-1 ml-0" data-target=#modal-daftar>
-                      <i class="bi bi-plus"></i> Daftar Kelas
-                    </a>
-
-                        <div class="feedeback">
-                            <h6>Your Feedback</h6>
-                            <textarea name="feedback" class="form-control" cols="10" rows="10"></textarea>
-                            <div class="mt-10 text-right">
-                                <a href="#" class="primary-btn2 text-right rounded-0 text-white">Submit</a>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <div class="col-md-4 mt-3">
+                        <div class="single-defination">
+                            <img src="img/<?php echo $row['sampul_kelas']; ?>" alt="<?php echo $row['judul_kelas']; ?>" style="width: 350px; height: 200px;" class="mb-2">
+                            <h4 class="mb-20"><?php echo $row['judul_kelas']; ?></h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <?php if(isset($_SESSION['email'])): ?>
+                                    <a href="detail_kelas.php?id_kelas=<?php echo $row['id_kelas']; ?>" class="btn primary-btn2">Detail</a>
+                                <?php else: ?>
+                                    <a href="login/login-page.php" class="btn primary-btn2" onclick="return confirm('Silakan login terlebih dahulu untuk melihat detail video.')">Detail</a>
+                                <?php endif; ?>
+                                <span class="text-danger font-weight-bold"><?php echo 'Rp ' . $row['harga_kelas']; ?></span>
                             </div>
                         </div>
-                        </div>
                     </div>
-                </div>
+                <?php endwhile; ?>
             </div>
         </div>
-    </section>
+        </div>
+        
     <!--================ End Course Details Area =================-->
-    <div class="modal fade" id="modal-daftar" tabindex="-1" role="dialog" aria-labelledby="modalDaftarLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalDaftarLabel">Konfirmasi Pendaftaran</h5>
-                </div>
-                <div class="modal-body">
-                <form id="paymentForm" action="bukti_bayar_kelas.php" method="POST" enctype="multipart/form-data">
-                    <p>Detail Pendaftaran</p>
-                    <h5 class="card-title">Nama : <?php echo $user_data['nama']; ?></h5>
-                    <h5 class="card-title">Tipe Pembelian : <?php echo $user_data['tipe_produk']; ?></h5>
-                    <h5 class="card-title">Judul : <?php echo $user_data['judul_kelas']; ?></h5>
-                    <p class="card-text"><?php echo $user_data['deskripsi_kelas']; ?></p>
-                    <p class="card-text text-danger">Total: Rp. <?php echo $user_data['harga_kelas']; ?></p>
-                </div>
-                <div class="modal-body">
-                    <p class="text-dark">Pilihan Pembayaran</p>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="bri" value="BRI">
-                                <img src="img/bri.png" alt="BRI" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                2209-0843-0982-098
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="bni" value="BNI">
-                                <img src="img/bni.png" alt="BNI" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                2201-0810-0790-987
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="bca" value="BCA">
-                                <img src="img/bca.png" alt="BCA" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                0982-2345-9274-093
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="mandiri" value="mandiri">
-                                <img src="img/mandiri.png" alt="BSI" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                0283-0384-2345-098
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="dana" value="dana">
-                                <img src="img/dana.jpg" alt="dana" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                0821-7325-6853
-                            </label>
-                        </div>
-                </div>
-                <div class="modal-body">
-                        <div class="form-group">
-                            <label for="bukti_bayar" class="text-dark">Upload Bukti Pembayaran</label>
-                            <input type="file" class="form-control-file" id="bukti_bayar" name="bukti_bayar" required>
-                        </div>
-                </div>
-                    <!-- Hidden fields -->
-                    <input type="hidden" name="id_transaksi" value="<?php echo $id_transaksi; ?>">
-                        <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user']; ?>">
-                        <input type="hidden" name="id_kelas" value="<?php echo $user_data['id_kelas']; ?>">
-                        <input type="hidden" name="tgl_transaksi" value="<?php echo date('Y-m-d H:i:s'); ?>">
-                        <input type="hidden" name="harga" value="<?php echo $user_data['harga_kelas']; ?>">
-                </form>
-                <div class="modal-footer"> 
-                    <button type="button" class="genric-btn default circle" data-dismiss="modal">Tutup</button>
-                    <button type="submit" id="bayarButton" class="genric-btn danger circle" form="paymentForm">Bayar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
     <!--================ Start footer Area  =================-->
     <footer class="footer-area section_gap">
       <div class="container">

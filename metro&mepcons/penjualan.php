@@ -77,59 +77,9 @@
 
   <body>
     <!--================ Start Header Menu Area =================-->
-    <header class="header_area white-header">
-      <div class="main_menu">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand" href="index.php">
-              <img class="logo-2" src="img/mepcons_metro_logo.png" alt="" style="width: 160px;"/>
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="icon-bar"></span> <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div
-              class="collapse navbar-collapse offset"
-              id="navbarSupportedContent"
-            >
-              <ul class="nav navbar-nav menu_nav ml-auto">
-                <!-- <li class="nav-item">
-                  <a class="nav-link" href="index_admin.php">Home</a>
-                </li> -->
-                <li class="nav-item">
-                  <a class="nav-link" href="video.php">Video</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="ebook.php">E-Book</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="kelas.php">Daftar Kelas</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="user.php">Users</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="user.php">Penjualan</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="login/login-page.php">Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <?php
+      include 'navbar_admin.php';
+    ?>
     <!--================ End Header Menu Area =================-->
 
     <!--================Home Banner Area =================-->
@@ -141,10 +91,10 @@
             <div class="col-lg-6">
               <div class="banner_content text-center">
                 <h2>Penjualan</h2>
-                <div class="page_link">
+                <!-- <div class="page_link">
                   <a href="index.php">Home</a>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -187,8 +137,11 @@
                     // Cek status transaksi
                     if ($row['status'] === 'konfirmasi') {
                         // Jika statusnya 'konfirmasi', tampilkan tombol 'Selesai'
-                        echo "<button class='btn btn-success' disabled>Selesai</button>";
-                    } else {
+                        echo "<button class='btn btn-primary' disabled>Selesai</button>";
+                      }    elseif ($row['status'] === 'tolak') {
+                          echo "<button class='btn btn-danger' disabled>Ditolak</button>";
+                        } 
+                     else {
                         // Jika belum dikonfirmasi, tampilkan tombol Konfirmasi dan Tolak
                         echo "<form action='konfirmasi_transaksi.php' method='POST'>
                                 <input type='hidden' name='id_transaksi' value='{$row['id_transaksi']}'>
