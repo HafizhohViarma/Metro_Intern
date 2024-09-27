@@ -6,10 +6,10 @@
 <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="index.html"
+            <a class="navbar-brand logo_h" href="index.php"
               ><img src="img/mepcons_metro_logo.png" alt="" style="width: 160px;"
             /></a>
-            <button
+          <button
               class="navbar-toggler"
               type="button"
               data-toggle="collapse"
