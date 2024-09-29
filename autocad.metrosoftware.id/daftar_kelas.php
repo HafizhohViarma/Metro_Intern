@@ -146,26 +146,9 @@
     <!--================ End Course Details Area =================-->
     
     <!--================ Start footer Area  =================-->
-    <footer class="footer-area section_gap">
-      <div class="container">
-        <div>
-          <h4 class="text-white">Hubungi Kami</h4>
-          <p>metroindo.software@gmail.com | +62 822-8960-8096 | @metrosoftware</p>
-        </div>
-        <div class="row footer-bottom d-flex justify-content-between">
-          <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by Metro Indonesian Software
-          </p>
-          <div class="col-lg-4 col-sm-12 footer-social">
-            <p>Follow Us</p>
-            <a href="#"><i class="ti-facebook"></i></a>
-            <a href="#"><i class="ti-twitter"></i></a>
-            <a href="#"><i class="ti-dribbble"></i></a>
-            <a href="#"><i class="ti-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php
+      include 'footer.php';
+    ?>
           <!--================ End footer Area  =================-->
       
           <!-- Optional JavaScript -->
