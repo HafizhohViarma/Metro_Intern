@@ -120,10 +120,10 @@ if (isset($_GET['id_ebook'])) {
             <div class="row">
                 <div class="col-lg-8 course_details_left">
                     <div class="main_image">
-                        <img src="img/<?php echo $ebook['sampul_ebook']; ?>" class="img-fluid rounded-start mt-4 mb-4" alt="<?php echo $ebook['judul_ebook']; ?>" style="width: 800px; height: 400px;">
+                        <img src="img/<?php echo $ebook['sampul_ebook']; ?>" class="img-fluid rounded-start mt-4 mb-4" alt="<?php echo $ebook['judul_ebook']; ?>" style="width: 430px; height: 430px;">
                     </div>
                     <div class="content_wrapper">
-                        <h4 class="title">Tujuan</h4>
+                        <h4 class="title">Deskripsi E-Book</h4>
                         <div class="content">
                         <?php echo $ebook['deskripsi_ebook']; ?>
                         </div>
@@ -145,16 +145,20 @@ if (isset($_GET['id_ebook'])) {
                             </a>
                         </li>
                     </ul>
-                    <a href="#" data-toggle=modal class="primary-btn ml-sm-1 ml-0" data-target=#modalbeli>
-                      <i class="bi bi-plus"></i> Akses E-Book
-                    </a>
+                    <div class="text-right">
+                        <a href="#" data-toggle=modal class="primary-btn ml-sm-1 ml-0" data-target=#modalbeli>
+                          <i class="bi bi-plus"></i> Akses E-Book
+                        </a>
+                    </div>
 
                         <div class="feedeback">
-                            <h6>Your Feedback</h6>
-                            <textarea name="feedback" class="form-control" cols="10" rows="10"></textarea>
-                            <div class="mt-10 text-right">
-                                <a href="#" class="primary-btn2 text-right rounded-0 text-white">Submit</a>
-                            </div>
+                        <h6>Your Feedback</h6>
+                            <form action="submit_feedback.php" method="POST">
+                                <textarea name="feedback" class="form-control" cols="10" rows="10" required></textarea>
+                                <div class="mt-10 text-right">
+                                    <button type="submit" class="primary-btn2 text-right rounded-0 text-white">Submit</button>
+                                </div>
+                            </form>
                             <div class="mt-5 text-right">
                                 <a href="belanja.php" class="primary-btn text-right rounded-0 bi-arrow-right">Daftar E-Book lainnya</a>
                             </div>
@@ -186,54 +190,36 @@ if (isset($_GET['id_ebook'])) {
                 </div>
 
                 <div class="modal-body">
-                    <p class="text-dark">Pilihan Pembayaran</p>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="bri" value="BRI">
-                                <img src="img/bri.png" alt="BRI" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                2209-0843-0982-098
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="bni" value="BNI">
-                                <img src="img/bni.png" alt="BNI" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                2201-0810-0790-987
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="bca" value="BCA">
-                                <img src="img/bca.png" alt="BCA" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                0982-2345-9274-093
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="mandiri" value="mandiri">
-                                <img src="img/mandiri.png" alt="Mandiri" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                0283-0384-2345-098
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="payment" id="dana" value="dana">
-                                <img src="img/dana.jpg" alt="Dana" class="ml-2 mr-3" style="width: 40px; height: 40px;">
-                                0821-7325-6853
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="bukti_bayar" class="text-dark">Upload Bukti Pembayaran</label>
-                            <input type="file" class="form-control-file" id="bukti_bayar" name="bukti_bayar" required>
-                        </div>
-                </div>
-                        <!-- Hidden fields -->
-                        <input type="hidden" name="id_transaksi" value="<?php echo $id_transaksi; ?>">
-                        <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user']; ?>">
-                        <input type="hidden" name="tgl_transaksi" value="<?php echo date('Y-m-d H:i:s'); ?>">
-                        <input type="hidden" name="harga" value="<?php echo $ebook['harga_ebook']; ?>">
-                        <input type="hidden" name="id_ebook" value="<?php echo $ebook['id_ebook']; ?>">
-                        </form>
+                <p class="text-dark">Pilihan Pembayaran</p>
+                    <div class="form-check">
+                    <div class="form-check mt-2">
+                        <label class="form-check-label d-flex align-items-center">
+                            <input class="form-check-input" type="radio" name="payment" id="bca" value="BCA">
+                            <img src="img/bca.png" alt="BCA" class="ml-2 mr-3" style="width: 50px; height: 50px;">
+                            <h5>BCA 2731-5858-32</h5>
+                        </label>
+                    </div>
+                    <div class="form-check mt-2">
+                        <label class="form-check-label d-flex align-items-center">
+                            <input class="form-check-input" type="radio" name="payment" id="mandiri" value="mandiri">
+                            <img src="img/mandiri.png" alt="Mandiri" class="ml-2 mr-3" style="width: 50px; height: 50px;">
+                            <h5>Bank Mandiri 129-000-781-6859</h5>
+                        </label>
+                        <h5 class="m-3">A.N : Sugeng Marjono</h5>
+                    </div>
+                    <div class="form-group">
+                        <label for="bukti_bayar" class="text-dark">Upload Bukti Pembayaran</label>
+                        <input type="file" class="form-control-file" id="bukti_bayar" name="bukti_bayar" required>
+                    </div>
+                    <!-- Hidden fields -->
+                    <input type="hidden" name="id_transaksi" value="<?php echo $id_transaksi; ?>">
+                    <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user']; ?>">
+                    <input type="hidden" name="id_ebook" value="<?php echo $ebook['id_ebook']; ?>">
+                    <input type="hidden" name="tgl_transaksi" value="<?php echo date('Y-m-d H:i:s'); ?>">
+                    <input type="hidden" name="harga" value="<?php echo $ebook['harga_ebook']; ?>">
+                </form>
+            </div>
+            </div>
                 <div class="modal-footer"> 
                     <button type="button" class="genric-btn default circle" data-dismiss="modal">Tutup</button>
                     <button type="submit" id="bayarButton" class="genric-btn danger circle" form="paymentForm">Bayar</button>

@@ -28,12 +28,13 @@ $query = "
 
 $querykelas = "
     SELECT 
-        tb_transaksi.id_transaksi,
-        tb_transaksi.tgl_transaksi,
-        tb_kelas.judul_kelas,
-        tb_kelas.harga_kelas,
-        tb_kelas.sampul_kelas,
-        tb_kelas.jadwal
+    tb_transaksi.id_transaksi,
+    tb_transaksi.tgl_transaksi,
+    tb_kelas.id_kelas,
+    tb_kelas.judul_kelas,
+    tb_kelas.harga_kelas,
+    tb_kelas.sampul_kelas,
+    tb_kelas.jadwal
     FROM 
         tb_transaksi
     JOIN tb_kelas ON tb_transaksi.id_kelas = tb_kelas.id_kelas
@@ -42,7 +43,8 @@ $querykelas = "
         AND tb_transaksi.id_user = '$id_user'
         AND tb_transaksi.status = 'konfirmasi'
     ORDER BY 
-        tb_transaksi.id_transaksi DESC
+        tb_transaksi.id_transaksi DESC;
+
 ";
 
 $queryebook = "
