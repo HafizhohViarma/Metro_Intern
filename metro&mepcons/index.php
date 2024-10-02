@@ -103,7 +103,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<div class="col-lg-3 col-md-6 mb-4">';
                 echo '<div class="single-defination">';
-                echo '<img src="img/' . $row['sampul_kelas'] . '" alt="" style="width:250px; height:180px;" class="mb-2">';
+                echo '<img src="img/' . $row['sampul_kelas'] . '" alt="" style="width:250px; height:250px;" class="mb-2">';
                 echo '<h4 class="mb-20">' . $row['judul_kelas'] . '</h4>';
                 // Cek apakah user sudah login
                 if (isset($_SESSION['email'])) {
@@ -157,7 +157,7 @@
               while ($data = mysqli_fetch_assoc($result_book)) {
                   echo '<div class="col-lg-3 col-md-6 mb-4">';
                   echo '<div class="single-defination">';
-                  echo '<img src="img/' . $data['sampul_ebook'] . '" alt="" style="width:250px; height:180px;" class="mb-2">';
+                  echo '<img src="img/' . $data['sampul_ebook'] . '" alt="" style="width:250px; height:250px;" class="mb-2">';
                   echo '<h4 class="mb-20 text-light">' . $data['judul_ebook'] . '</h4>';
                   // Cek apakah user sudah login
                   if (isset($_SESSION['email'])) {
@@ -178,7 +178,7 @@
               while ($show = mysqli_fetch_assoc($result_video)) {
                   echo '<div class="col-lg-3 col-md-6 mb-4">';
                   echo '<div class="single-defination">';
-                  echo '<img src="img/' . $show['sampul_video'] . '" alt="" style="width:250px; height:180px;" class="mb-2">';
+                  echo '<img src="img/' . $show['sampul_video'] . '" alt="" style="width:250px; height:250px;" class="mb-2">';
                   echo '<h4 class="mb-20 text-light">' . $show['judul_video'] . '</h4>';
                   // Cek apakah user sudah login
                   if (isset($_SESSION['email'])) {
