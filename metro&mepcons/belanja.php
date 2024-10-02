@@ -41,8 +41,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="icon" href="img/mepcons_metro_logo.png" type="image/png" />
-    <title>Belanja Sekarang</title>
+     <meta name="keywords" content="AutoCAD, tutorial AutoCAD, tips AutoCAD, sumber daya desain, software desain, belajar AutoCAD, panduan AutoCAD, Metro Software, kursus AutoCAD">
+      <meta name="description" content="Temukan tutorial AutoCAD, tips, dan sumber daya terbaru di Metro Software. Tingkatkan keterampilan desain teknis Anda dengan panduan lengkap dan tips praktis dari para ahli.">
+    <link rel="icon" href="img/autocad.png" type="image/png" />
+    <title>AutoCAD Tutorial dan Sumber Daya Terbaik - Metro Software</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -164,33 +166,6 @@
           </div>
           <?php endwhile; ?>
         </div>
-
-        <!-- Menampilkan Kelas -->
-        <!-- <div class="section-top-border">
-        <h4>Pilihan Kelas</h4>
-        <div class="row">
-          <?php while ($row = mysqli_fetch_assoc($result_kelas)): ?>
-            <div class="col-md-4 d-inline-block mt-3" style="float: none;">
-            <div class="single-defination">
-              <img src="img/<?php echo $row['sampul_kelas']; ?>" alt="<?php echo $row['judul_kelas']; ?>" style="width: 350px; height: 200px;" class="mb-2">
-              <h4 class="mb-20"><?php echo $row['judul_kelas']; ?></h4>
-              <div class="d-flex justify-content-between align-items-center">
-              <?php if(isset($_SESSION['email'])): ?>
-                                    <a href="detail_kelas.php?id_kelas=<?php echo $row['id_kelas']; ?>" class="btn primary-btn2">Detail</a>
-                                <?php else: ?>
-                                    <a href="login/login-page.php" class="btn primary-btn2" onclick="return confirm('Silakan login terlebih dahulu untuk melihat detail kelas.')">Detail</a>
-                                <?php endif; ?>
-                <span class="text-danger font-weight-bold"><?php echo 'Rp ' . number_format($row['harga_kelas']); ?>.000</span>
-              </div>
-            </div>
-          </div>
-          <?php endwhile; ?>
-        </div>
-        </div> -->
-      </div>
-      </div>
-
-
     <!--================ Start footer Area  =================-->
     <?php
       include 'footer.php';

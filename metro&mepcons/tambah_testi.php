@@ -81,7 +81,7 @@
           </div>
           <div class="form-group">
                 <label for="testimoni">Deskripsi Testimoni</label>
-                <input type="text" name="testimoni" class="form-control" id="testimoni" placeholder="Masukkan Nama" required />
+                <input type="text" name="testimoni" class="form-control" id="testimoni" placeholder="Masukkan Deskripsi Testimoni" required />
             </div>
             <div class="mb-3">
                 <button type="submit" class="genric-btn info circle mt-5">Tambah</button>

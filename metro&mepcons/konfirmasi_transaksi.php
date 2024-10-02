@@ -6,33 +6,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_transaksi = $_POST['id_transaksi'];
     $status = '';
 
-    // Cek apakah admin memilih konfirmasi atau tolak
     if (isset($_POST['konfirmasi'])) {
-        $status = 'selesai'; // Status diubah menjadi 'selesai' setelah dikonfirmasi
-        $_SESSION['alert_message'] = 'Transaksi berhasil dikonfirmasi!';
-        $_SESSION['alert_class'] = 'alert-success';
+        $status = 'konfirmasi';
+        echo "<script>alert('Transaksi berhasil diperbarui, data sudah diakses user!');</script>";
     } elseif (isset($_POST['tolak'])) {
-        $status = 'tolak'; // Status diubah menjadi 'ditolak'
-        $_SESSION['alert_message'] = 'Transaksi berhasil ditolak!';
-        $_SESSION['alert_class'] = 'alert-danger';
+        $status = 'tolak';
+        echo "<script>alert('Transaksi berhasil ditolak!');</script>";
     }
 
-    // Update status transaksi di database
+    // Update status transaksi (baik konfirmasi atau tolak)
     if ($status) {
         $query = "UPDATE tb_transaksi SET status = '$status' WHERE id_transaksi = $id_transaksi";
         $result = mysqli_query($koneksi, $query);
 
         if ($result) {
-            // Redirect kembali ke halaman penjualan setelah berhasil memperbarui
+            // Jika berhasil, beri pesan dan redirect ke halaman penjualan
+            echo "<script>alert('Transaksi berhasil diperbarui');</script>";
             echo '<meta http-equiv="refresh" content="0; url=penjualan.php">';
-            exit;
         } else {
-            // Jika terjadi error saat update, tampilkan pesan error
-            $_SESSION['alert_message'] = 'Gagal memperbarui transaksi: ' . mysqli_error($koneksi);
-            $_SESSION['alert_class'] = 'alert-danger';
+            echo "<script>alert('Gagal memperbarui transaksi: " . mysqli_error($koneksi) . "');</script>";
             echo '<meta http-equiv="refresh" content="0; url=penjualan.php">';
-            exit;
         }
+        exit;
     }
 }
 ?>

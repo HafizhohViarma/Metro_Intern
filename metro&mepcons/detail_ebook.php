@@ -47,8 +47,10 @@ if (isset($_GET['id_ebook'])) {
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="img/mepcons_metro_logo.png" type="image/png" />
-    <title>Detail E-Book</title>
+ <meta name="keywords" content="AutoCAD, tutorial AutoCAD, tips AutoCAD, sumber daya desain, software desain, belajar AutoCAD, panduan AutoCAD, Metro Software, kursus AutoCAD">
+      <meta name="description" content="Temukan tutorial AutoCAD, tips, dan sumber daya terbaru di Metro Software. Tingkatkan keterampilan desain teknis Anda dengan panduan lengkap dan tips praktis dari para ahli.">
+    <link rel="icon" href="img/autocad.png" type="image/png" />
+    <title>AutoCAD Tutorial dan Sumber Daya Terbaik - Metro Software</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -56,52 +58,115 @@ if (isset($_GET['id_ebook'])) {
     <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-        body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/cad.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .detail-produk h1 {
-            color: #FFFFFF; 
-        }
-        .card {
-            background-color: #FFFFFF; 
-            max-width: 900px;
-            margin: 0 auto; 
-        }
-        .card-body {
-            color: black;
-        }
-    </style>
 </head>
 <body>
-    <div class="container mt-5 text-center detail-produk">
-        <h1>Detail E-Book</h1>
-    </div>
-    <div class="card mb-3 container">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="img/<?php echo $ebook['sampul_ebook']; ?>" class="img-fluid rounded-start mt-4 mb-4" alt="<?php echo $ebook['judul_ebook']; ?>">
+<header class="header_area white-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand" href="index.php">
+              <img src="img/mepcons_metro_logo.png" alt="" style="width: 160px;"/>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span> <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              </ul>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $ebook['judul_ebook']; ?></h5>
-                    <p class="card-text"><?php echo $ebook['deskripsi_ebook']; ?></p>
-                    <p class="card-text text-danger">Harga: Rp. <?php echo $ebook['harga_ebook']; ?></p>
-                    <p class="card-text"><i class="fas fa-check"></i> E-Book Terpandu</p>
-                    <p class="card-text"><i class="fas fa-check"></i> Akses Seumur Hidup</p>
-                    <a href="belanja.php" class="genric-btn success circle">Kembali</a>
-                    <a href="#" class="genric-btn danger circle" data-toggle="modal" data-target="#modalbeli">
-                        <i class="fas fa-shopping-cart"></i> Beli Sekarang
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Detail E-Book</h2>
+                <div class="page_link">
+                  <a href="index.php">Home</a>
+                  <a href="belanja.php">Lihat e-book lainnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="course_details_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 course_details_left">
+                    <div class="main_image">
+                        <img src="img/<?php echo $ebook['sampul_ebook']; ?>" class="img-fluid rounded-start mt-4 mb-4" alt="<?php echo $ebook['judul_ebook']; ?>" style="width: 800px; height: 400px;">
+                    </div>
+                    <div class="content_wrapper">
+                        <h4 class="title">Tujuan</h4>
+                        <div class="content">
+                        <?php echo $ebook['deskripsi_ebook']; ?>
+                        </div>
+                </div>
+                </div>
+
+                <div class="col-lg-4 right-contents">
+                    <ul>
+                        <li>
+                            <a class="justify-content-between d-flex " href="#">
+                                <p>Judul E-Book</p>
+                                <span class="or"><?php echo $ebook['judul_ebook']; ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Harga E-Book</p>
+                                <span class="text-danger"><?php echo $ebook['harga_ebook']; ?></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" data-toggle=modal class="primary-btn ml-sm-1 ml-0" data-target=#modalbeli>
+                      <i class="bi bi-plus"></i> Akses E-Book
                     </a>
+
+                        <div class="feedeback">
+                            <h6>Your Feedback</h6>
+                            <textarea name="feedback" class="form-control" cols="10" rows="10"></textarea>
+                            <div class="mt-10 text-right">
+                                <a href="#" class="primary-btn2 text-right rounded-0 text-white">Submit</a>
+                            </div>
+                            <div class="mt-5 text-right">
+                                <a href="belanja.php" class="primary-btn text-right rounded-0 bi-arrow-right">Daftar E-Book lainnya</a>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    
 
     <!-- modal -->
     <div class="modal fade" id="modalbeli" tabindex="-1" role="dialog" aria-labelledby="modalbeliLabel" aria-hidden="true">
@@ -176,6 +241,9 @@ if (isset($_GET['id_ebook'])) {
             </div>
         </div>
     </div>
+    <?php
+      include 'footer.php';
+    ?>
 </body>
 </html>
 

@@ -29,8 +29,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="icon" href="img/mepcons_metro_logo.png" type="image/png" />
-    <title>Penjualan</title>
+     <meta name="keywords" content="AutoCAD, tutorial AutoCAD, tips AutoCAD, sumber daya desain, software desain, belajar AutoCAD, panduan AutoCAD, Metro Software, kursus AutoCAD">
+      <meta name="description" content="Temukan tutorial AutoCAD, tips, dan sumber daya terbaru di Metro Software. Tingkatkan keterampilan desain teknis Anda dengan panduan lengkap dan tips praktis dari para ahli.">
+    <link rel="icon" href="img/autocad.png" type="image/png" />
+    <title>AutoCAD Tutorial dan Sumber Daya Terbaik - Metro Software</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -121,40 +123,41 @@
         </thead>
         <tbody>
         <?php
-                $no = 1;
-                while($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td align='center'>{$no}</td>";
-                    echo "<td align='center'>{$row['id_transaksi']}</td>";
-                    echo "<td align='center'>{$row['nama_user']}</td>";
-                    echo "<td align='center'>{$row['tgl_transaksi']}</td>";
-                    echo "<td align='center'>{$row['tipe_produk']}</td>";
-                    echo "<td align='center'>{$row['harga']}</td>";
-                    echo "<td align='center'>{$row['payment']}</td>";
-                    // echo "<td align='center'><img src='{$row['bukti_bayar']}' width='100'></td>";
-                    echo "<td align='center'><img class='bukti-bayar' src='{$row['bukti_bayar']}' width='100'></td>";
-                    echo "<td align='center'>";
-                    // Cek status transaksi
-                    if ($row['status'] === 'konfirmasi') {
-                        // Jika statusnya 'konfirmasi', tampilkan tombol 'Selesai'
-                        echo "<button class='btn btn-primary' disabled>Selesai</button>";
-                      }    elseif ($row['status'] === 'tolak') {
-                          echo "<button class='btn btn-danger' disabled>Ditolak</button>";
-                        } 
-                     else {
-                        // Jika belum dikonfirmasi, tampilkan tombol Konfirmasi dan Tolak
-                        echo "<form action='konfirmasi_transaksi.php' method='POST'>
-                                <input type='hidden' name='id_transaksi' value='{$row['id_transaksi']}'>
-                                <button type='submit' name='konfirmasi' class='btn btn-success mb-2'>Konfirmasi</button>
-                                <button type='submit' name='tolak' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menolak transaksi ini?\");'>Tolak</button>
-                              </form>";
-                    }
+        $no = 1;
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td align='center'>{$no}</td>";
+            echo "<td align='center'>{$row['id_transaksi']}</td>";
+            echo "<td align='center'>{$row['nama_user']}</td>";
+            echo "<td align='center'>{$row['tgl_transaksi']}</td>";
+            echo "<td align='center'>{$row['tipe_produk']}</td>";
+            echo "<td align='center'>{$row['harga']}</td>";
+            echo "<td align='center'>{$row['payment']}</td>";
+            echo "<td align='center'><img class='bukti-bayar' src='{$row['bukti_bayar']}' width='100'></td>";
+            echo "<td align='center'>";
 
-                    echo "</td>";
-                    echo "</tr>";
-                    $no++;
-                }
-            ?>
+            // Cek status transaksi
+            if ($row['status'] === 'konfirmasi') {
+                // Jika statusnya 'konfirmasi', tampilkan tombol 'Selesai'
+                echo "<button class='btn btn-success' disabled>Selesai</button>";
+            } elseif ($row['status'] === 'tolak') {
+                // Jika statusnya 'tolak', tampilkan tombol 'Ditolak'
+                echo "<button class='btn btn-danger' disabled>Ditolak</button>";
+            } else {
+                // Jika belum dikonfirmasi, tampilkan tombol Konfirmasi dan Tolak
+                echo "<form action='konfirmasi_transaksi.php' method='POST'>
+                        <input type='hidden' name='id_transaksi' value='{$row['id_transaksi']}'>
+                        <button type='submit' name='konfirmasi' class='btn btn-success mb-2'>Konfirmasi</button>
+                        <button type='submit' name='tolak' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menolak transaksi ini?\");'>Tolak</button>
+                      </form>";
+            }
+
+            echo "</td>";
+            echo "</tr>";
+            $no++;
+        }
+        ?>
+
         </tbody>
     </div>
     <!--================End Table Area =================-->

@@ -50,8 +50,10 @@ if (isset($_GET['id_kelas'])) {
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="icon" href="img/mepcons_metro_logo.png" type="image/png" />
-    <title>Detail Kelas</title>
+     <meta name="keywords" content="AutoCAD, tutorial AutoCAD, tips AutoCAD, sumber daya desain, software desain, belajar AutoCAD, panduan AutoCAD, Metro Software, kursus AutoCAD">
+      <meta name="description" content="Temukan tutorial AutoCAD, tips, dan sumber daya terbaru di Metro Software. Tingkatkan keterampilan desain teknis Anda dengan panduan lengkap dan tips praktis dari para ahli.">
+    <link rel="icon" href="img/autocad.png" type="image/png" />
+    <title>AutoCAD Tutorial dan Sumber Daya Terbaik - Metro Software</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -256,26 +258,9 @@ if (isset($_GET['id_kelas'])) {
         </div>
     </div>
 
-    <footer class="footer-area section_gap">
-      <div class="container">
-        <div>
-          <h4 class="text-white">Hubungi Kami</h4>
-          <p>metroindo.software@gmail.com | +62 822-8960-8096 | @metrosoftware</p>
-        </div>
-        <div class="row footer-bottom d-flex justify-content-between">
-          <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by Metro Indonesian Software
-          </p>
-          <div class="col-lg-4 col-sm-12 footer-social">
-            <p>Follow Us</p>
-            <a href="#"><i class="ti-facebook"></i></a>
-            <a href="#"><i class="ti-twitter"></i></a>
-            <a href="#"><i class="ti-dribbble"></i></a>
-            <a href="#"><i class="ti-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php
+      include 'footer.php';
+    ?>
 </body>
 </html>
 <!-- Optional JavaScript -->

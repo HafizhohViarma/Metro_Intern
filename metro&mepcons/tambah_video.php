@@ -1,36 +1,49 @@
 <?php
-    include "koneksi.php";
+include "koneksi.php";
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // Mendapatkan data dari form
-      $judul_video = $_POST['judul_video'];
-      $keterangan_video = $_POST['keterangan_video'];
-      $harga_video = $_POST['harga_video'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Mendapatkan data dari form
+    $judul_video = $_POST['judul_video'];
+    $keterangan_video = $_POST['keterangan_video'];
+    $harga_video = $_POST['harga_video'];
 
-      // Mengambil file sampul video
-      $sampul_video = $_FILES['sampul_video']['name'];
-      $tmp_name = $_FILES['sampul_video']['tmp_name'];
-      
-      // Menentukan folder penyimpanan file
-      $folder = "img/";
-      
-      // Pindahkan file ke folder tujuan
-      if (move_uploaded_file($tmp_name, $folder.$sampul_video)) {
-          // Menyimpan data ke database
-          $query = "INSERT INTO tb_video (judul_video, keterangan_video, sampul_video, harga_video) VALUES ('$judul_video', '$keterangan_video', '$sampul_video', '$harga_video')";
-          $result = mysqli_query($koneksi, $query);
-          
-          if ($result) {
-              echo "<script>alert('Data berhasil disimpan!'); window.location.href = 'video.php';</script>";
-          } else {
-              echo "<script>alert('Data gagal disimpan. Coba lagi!'); window.location.href = 'tambah_video.php';</script>";
-          }
-      } else {
-          echo "<script>alert('Gagal mengupload file gambar. Coba lagi!'); window.location.href = 'tambah_video.php';</script>";
-      }
-  }
-  
+    // Mengambil file sampul video
+    $sampul_video = $_FILES['sampul_video']['name'];
+    $sampul_tmp_name = $_FILES['sampul_video']['tmp_name'];
+    $sampul_error = $_FILES['sampul_video']['error'];
+
+    // Mengambil file video
+    $video_file = $_FILES['video_file']['name'];
+    $video_tmp_name = $_FILES['video_file']['tmp_name'];
+    $video_error = $_FILES['video_file']['error'];
+
+    // Menentukan folder penyimpanan file
+    $folder_sampul = "img/";
+    $folder_video = "img/video/";
+
+    // Validasi file upload
+    if ($sampul_error === UPLOAD_ERR_OK && $video_error === UPLOAD_ERR_OK) {
+        // Pindahkan file sampul dan video ke folder tujuan
+        if (move_uploaded_file($sampul_tmp_name, $folder_sampul . $sampul_video) && move_uploaded_file($video_tmp_name, $folder_video . $video_file)) {
+            // Menyimpan data ke database
+            $query = "INSERT INTO tb_video (judul_video, keterangan_video, sampul_video, video_file, harga_video) 
+                      VALUES ('$judul_video', '$keterangan_video', '$sampul_video', '$video_file', '$harga_video')";
+            $result = mysqli_query($koneksi, $query);
+            
+            if ($result) {
+                echo "<script>alert('Data berhasil disimpan!'); window.location.href = 'video.php';</script>";
+            } else {
+                echo "<script>alert('Data gagal disimpan. Coba lagi!'); window.location.href = 'tambah_video.php';</script>";
+            }
+        } else {
+            echo "<script>alert('Gagal mengupload file gambar atau video. Coba lagi!'); window.location.href = 'tambah_video.php';</script>";
+        }
+    } else {
+        echo "<script>alert('Ada kesalahan saat mengupload file. Silakan coba lagi!'); window.location.href = 'tambah_video.php';</script>";
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,8 +53,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="icon" href="img/mepcons_metro_logo.png" type="image/png" />
-    <title>Tambah Video</title>
+     <meta name="keywords" content="AutoCAD, tutorial AutoCAD, tips AutoCAD, sumber daya desain, software desain, belajar AutoCAD, panduan AutoCAD, Metro Software, kursus AutoCAD">
+      <meta name="description" content="Temukan tutorial AutoCAD, tips, dan sumber daya terbaru di Metro Software. Tingkatkan keterampilan desain teknis Anda dengan panduan lengkap dan tips praktis dari para ahli.">
+    <link rel="icon" href="img/autocad.png" type="image/png" />
+    <title>AutoCAD Tutorial dan Sumber Daya Terbaik - Metro Software</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
@@ -103,6 +118,10 @@
           <div class="form-group">
               <label for="sampul_video">Sampul Video</label>
               <input type="file" class="form-control" id="sampul_video" name="sampul_video" accept="image/*">
+          </div>
+          <div class="form-group">
+              <label for="video_file">File Video (.Mp4)</label>
+              <input type="file" class="form-control" id="video_file" name="video_file" accept="video/*">
           </div>
           <div class="form-group">
               <label for="judul_video">Judul Video</label>
