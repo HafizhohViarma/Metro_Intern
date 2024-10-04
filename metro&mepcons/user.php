@@ -10,10 +10,11 @@
       $email = $_POST['email'];
       $telp = $_POST['telp'];
       $password = $_POST['password'];
+      $profil = $_POST['profil'];
       $level = $_POST['level'];
   
       // Simpan data ke database
-      $query = "INSERT INTO users (nama, email, telp, password, level) VALUES ('$nama','$email', '$telp', '$password', '$level')";
+      $query = "INSERT INTO users (nama, email, telp, password, level) VALUES ('$nama','$email', '$telp', '$profil','$password', '$level')";
       $result = mysqli_query($koneksi, $query);
   
       if ($result) {
@@ -104,6 +105,7 @@
             <tr>
                 <td align="center">No</td>
                 <td align="center">ID User</td>
+                <td align="center">Profil</td>
                 <td align="center">Nama</td>
                 <td align="center">Email</td>
                 <td align="center">No Telp / Telegram</td>
@@ -118,6 +120,7 @@
                     echo "<tr>";
                     echo "<td align='center'>" . $no++ . "</td>";
                     echo "<td align='center'>" . $row['id_user'] . "</td>";
+                    echo "<td align='center'>" . $row['profil'] . "</td>";
                     echo "<td align='center'>" . $row['nama'] . "</td>";
                     echo "<td align='center'>" . $row['email'] . "</td>";
                     echo "<td align='center'>" . $row['telp'] . "</td>";

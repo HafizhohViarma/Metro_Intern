@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama = $_POST['nama'];
     $email = $_POST['email'];
     $telp = $_POST['telp'];
-    // $password = $_POST['password'];
+    $profil = $_POST['profil'];
     $level = $_POST['level'];
 
     // Update data pengguna di database
-    $query = "UPDATE users SET nama = '$nama', email = '$email', telp = '$telp', level = '$level' WHERE id_user = '$id_user'";
+    $query = "UPDATE users SET nama = '$nama', email = '$email', telp = '$telp', level = '$level', profil = '$profil' WHERE id_user = '$id_user'";
     $result = mysqli_query($koneksi, $query);
 
     if ($result) {
@@ -84,6 +84,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="nama" name="nama" class="form-control" id="nama" value="<?php echo $user['nama']; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="profil">Profil</label>
+                <input type="file" name="profil" class="form-control" id="profil" value="<?php echo $user['profil']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

@@ -6,12 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $telp = $_POST['telp'];
     $password = $_POST['password'];
+    $profil = $_POST['profil'];
     $level = $_POST['level'];
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // Simpan data ke database
-    $query = "INSERT INTO users (nama, email, telp, password, level) VALUES ('$nama','$email', '$telp', '$password', '$level')";
+    $query = "INSERT INTO users (nama, email, telp, profil, password, level) VALUES ('$nama','$email', '$telp', '$profil','$password', '$level')";
     $result = mysqli_query($koneksi, $query);
 
     if ($result) {
@@ -76,6 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="nama" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama" required />
+            </div>
+            <div class="form-group">
+                <label for="profil">Profil (Foto Profil)</label>
+                <input type="file" name="profil" class="form-control" id="profil" required />
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
