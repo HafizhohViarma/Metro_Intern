@@ -65,8 +65,8 @@
                 <td align="center">No</td>
                 <td align="center">ID Video</td>
                 <td align="center">Sampul Video</td>
-                <td align="center">Video</td>
                 <td align="center">Judul Video</td>
+                <td align="center">Video</td>
                 <td align="center">Deskripsi</td>
                 <td align="center">Harga</td>
                 <td align="center">Aksi</td>
@@ -80,18 +80,16 @@
                     echo "<td align='center'>{$no}</td>";
                     echo "<td align='center'>{$row['id_video']}</td>";
                     echo "<td align='center'><img src='img/{$row['sampul_video']}' width='100'></td>";
-                    echo "<td align='center'>
-                    <video width='200' height='150' controls>
-                        <source src='img/video/{$row['video_file']}' type='video/mp4'>
-                        Your browser does not support the video tag.
-                    </video>
-                    </td>";
                     echo "<td align='center'>{$row['judul_video']}</td>";
+                    echo "<td align='center'>
+                            <a href='video-file.php?id_video={$row['id_video']}' class='genric-btn primary circle'>Detail Video</a>
+                            <br><br>
+                          </td>";
                     echo "<td align='center'>{$row['keterangan_video']}</td>";
                     echo "<td align='center'>{$row['harga_video']}</td>";
                     echo "<td align='center'>
-                            <a href='edit_video.php?id={$row['id_video']}' class='btn btn-warning'>Edit</a><br><br>
-                            <a href='delete_video.php?id={$row['id_video']}' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus video ini?\");'>Hapus</a>
+                            <a href='edit_video.php?id={$row['id_video']}' class='genric-btn warning circle'>Edit</a><br><br>
+                            <a href='delete_video.php?id={$row['id_video']}' class='genric-btn danger circle' onclick='return confirm(\"Apakah Anda yakin ingin menghapus video ini?\");'>Hapus</a>
                           </td>";
                     echo "</tr>";
                     $no++;

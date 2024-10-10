@@ -43,7 +43,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="banner_content text-center">
-                <h2>Testimoni</h2>
+                <h2>Testimoni / Feedback</h2>
                 <!-- <div class="page_link">
                   <a href="index.php">Home</a>
                   <a href="ebook.php">Video</a>
@@ -83,7 +83,7 @@
                 <td align="center">ID Testimoni</td>
                 <td align="center">Nama Peserta</td>
                 <td align="center">Profil</td>
-                <td align="center">Testimoni</td>
+                <td align="center">Testimoni / Feedback</td>
                 <td align="center">Aksi</td>
             </tr>
         </thead>
@@ -97,8 +97,8 @@
                     echo "<td align='center'>" . $row['profil'] . "</td>";
                     echo "<td align='center'>" . $row['testimoni'] . "</td>";
                     echo "<td align='center'>
-                            <a href='edit_testi.php?id=" . $row['id_testi'] . "' class='btn btn-warning mb-2'>Edit</a>
-                            <a href='delete_testi.php?id=" . $row['id_testi'] . "' class='btn btn-danger' onclick=\"return confirm('Anda yakin ingin menghapus Testimoni ini?')\">Hapus</a>
+                            <a href='edit_testi.php?id=" . $row['id_testi'] . "' class='genric-btn warning circle mb-2'>Edit</a>
+                            <a href='delete_testi.php?id=" . $row['id_testi'] . "' class='genric-btn danger circle' onclick=\"return confirm('Anda yakin ingin menghapus Testimoni ini?')\">Hapus</a>
                           </td>";
                     echo "</tr>";
                 }

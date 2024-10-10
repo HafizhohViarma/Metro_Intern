@@ -22,32 +22,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Mengambil file sampul video baru jika ada
     $sampul_video = $_FILES['sampul_video']['name'];
     $tmp_sampul = $_FILES['sampul_video']['tmp_name'];
-
-    // Mengambil file video baru jika ada
-    $video_file = $_FILES['video_file']['name'];
-    $tmp_video = $_FILES['video_file']['tmp_name'];
     
     // Menentukan folder penyimpanan file
     $folder = "img/";
-    $video_folder = "img/video/";
+
+    // Mulai query update
+    $query = "UPDATE tb_video SET 
+              judul_video = '$judul_video', 
+              keterangan_video = '$keterangan_video', 
+              harga_video = '$harga_video'";
 
     // Update dengan sampul baru jika ada
     if (!empty($sampul_video)) {
+        // Pindahkan file sampul ke folder yang ditentukan
         move_uploaded_file($tmp_sampul, $folder.$sampul_video);
-        $query = "UPDATE tb_video SET judul_video = '$judul_video', keterangan_video = '$keterangan_video', sampul_video = '$sampul_video', harga_video = '$harga_video' WHERE id_video = '$id_video'";
+        $query .= ", sampul_video = '$sampul_video'";
     }
 
-    // Update dengan video baru jika ada
-    if (!empty($video_file)) {
-        move_uploaded_file($tmp_video, $video_folder.$video_file);
-        $query = "UPDATE tb_video SET judul_video = '$judul_video', keterangan_video = '$keterangan_video', video_file = '$video_file', harga_video = '$harga_video' WHERE id_video = '$id_video'";
-    }
+    // Tambahkan kondisi WHERE untuk menentukan video yang diupdate
+    $query .= " WHERE id_video = '$id_video'";
 
-    // Jika tidak ada yang diupload, hanya update data
-    if (empty($sampul_video) && empty($video_file)) {
-        $query = "UPDATE tb_video SET judul_video = '$judul_video', keterangan_video = '$keterangan_video', harga_video = '$harga_video' WHERE id_video = '$id_video'";
-    }
-
+    // Eksekusi query update
     $result = mysqli_query($koneksi, $query);
 
     if ($result) {
@@ -93,23 +88,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <img src="img/<?php echo $video['sampul_video']; ?>" alt="Sampul" width="100" class="mt-3">
             </div>
             <div class="form-group">
-                <label for="video_file">File Video</label>
-                <input type="file" class="form-control" id="video_file" name="video_file" accept="video/*">
-                <video width="100" controls class="mt-3">
-                    <source src="img/video/<?php echo $video['video_file']; ?>" type="video/mp4">
-                </video>
-            </div>
-            <div class="form-group">
                 <label for="judul_video">Judul Video</label>
-                <input type="text" class="form-control" id="judul_video" name="judul_video" value="<?php echo $video['judul_video']; ?>" placeholder="Masukkan Judul">
+                <input type="text" class="form-control" id="judul_video" name="judul_video" value="<?php echo $video['judul_video']; ?>" placeholder="Masukkan Judul" required>
             </div>
             <div class="form-group">
                 <label for="keterangan_video">Deskripsi Video</label>
-                <input type="text" class="form-control" id="keterangan_video" name="keterangan_video" value="<?php echo $video['keterangan_video']; ?>" placeholder="Masukkan Deskripsi">
+                <input type="text" class="form-control" id="keterangan_video" name="keterangan_video" value="<?php echo $video['keterangan_video']; ?>" placeholder="Masukkan Deskripsi" required>
             </div>
             <div class="form-group">
                 <label for="harga_video">Harga</label>
-                <input type="text" class="form-control" id="harga_video" name="harga_video" value="<?php echo $video['harga_video']; ?>" placeholder="Masukkan Harga">
+                <input type="text" class="form-control" id="harga_video" name="harga_video" value="<?php echo $video['harga_video']; ?>" placeholder="Masukkan Harga" required>
             </div>
             <div class="mb-3">
                 <button type="submit" class="genric-btn info circle">Update</button>

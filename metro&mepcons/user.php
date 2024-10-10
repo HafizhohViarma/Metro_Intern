@@ -127,8 +127,8 @@
                     // echo "<td align='center'>" . $row['password'] . "</td>";
                     echo "<td align='center'>" . $row['level'] . "</td>";
                     echo "<td align='center'>
-                            <a href='edit_user.php?id=" . $row['id_user'] . "' class='btn btn-warning'>Edit</a>
-                            <a href='delete_user.php?id=" . $row['id_user'] . "' class='btn btn-danger' onclick=\"return confirm('Anda yakin ingin menghapus user ini?')\">Hapus</a>
+                            <a href='edit_user.php?id=" . $row['id_user'] . "' class='genric-btn warning circle'>Edit</a>
+                            <a href='delete_user.php?id=" . $row['id_user'] . "' class='genric-btn danger circle' onclick=\"return confirm('Anda yakin ingin menghapus user ini?')\">Hapus</a>
                           </td>";
                     echo "</tr>";
                 }

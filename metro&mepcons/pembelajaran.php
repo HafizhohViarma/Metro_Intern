@@ -149,11 +149,11 @@ $resultebook = mysqli_query($koneksi, $queryebook);
             <div class="col-md-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <img src="img/<?php echo $row['sampul_video'] ?>" class="card-img-top" alt="Sampul" style="width: 310px; height: 190px;">
+                        <img src="img/<?php echo $row['sampul_video'] ?>" class="card-img-top" alt="Sampul" style="width: 250px; height: 250px;">
                         <h5 class="card-title mt-1"><?php echo $row['judul_video']; ?></h5>
                         <p class="card-title">Tanggal Pembelian : <?php echo $row['tgl_transaksi']; ?></p>
                         <p class="card-text">Harga: Rp <?php echo $row['harga_video']; ?></p>
-                        <a href="akses_video.php?id_video=<?php echo $row['id_video']; ?>" class="btn btn-primary">Tonton</a>
+                        <a href="akses_video.php?id_video=<?php echo $row['id_video']; ?>" class="genric-btn info circle">Akses</a>
                     </div>
                 </div>
             </div>
@@ -170,13 +170,13 @@ $resultebook = mysqli_query($koneksi, $queryebook);
             <div class="col-md-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                    <img src="img/<?php echo $data['sampul_kelas'] ?>" class="card-img-top" alt="Sampul" style="width: 310px; height: 190px;">
+                    <img src="img/<?php echo $data['sampul_kelas'] ?>" class="card-img-top" alt="Sampul" style="width: 250px; height: 250px;">
                         <h5 class="card-title mt-1"><?php echo $data['judul_kelas']; ?></h5>
                         <p class="card-title">Tanggal Pembelian : <?php echo $data['tgl_transaksi']; ?></p>
                         <p class="card-title">Jadwal Kelas : <?php echo $data['jadwal']; ?></p>
                         <p class="card-text">Harga: Rp <?php echo $data['harga_kelas']; ?></p>
                         <!-- <a href="#" class="btn btn-success">Join WhatsApp</a> -->
-                        <a href="https://wa.me/1234567890" class="btn btn-success">Join Group</a>
+                        <a href="https://wa.me/1234567890" class="genric-btn primary circle">Join Group</a>
                     </div>
                 </div>
             </div>
@@ -192,11 +192,11 @@ $resultebook = mysqli_query($koneksi, $queryebook);
             <div class="col-md-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                    <img src="img/<?php echo $array['sampul_ebook'] ?>" class="card-img-top" alt="Sampul" style="width: 310px; height: 190px;">
+                    <img src="img/<?php echo $array['sampul_ebook'] ?>" class="card-img-top" alt="Sampul" style="width: 250px; height: 250px;">
                         <h5 class="card-title mt-1"><?php echo $array['judul_ebook']; ?></h5>
                         <p class="card-title">Tanggal Pembelian : <?php echo $array['tgl_transaksi']; ?></p>
                         <p class="card-text">Harga: Rp <?php echo $array['harga_ebook']; ?></p>
-                        <a href="akses_ebook.php?id_ebook=<?php echo $array['id_ebook']; ?>" class="btn btn-primary">Akses</a>
+                        <a href="akses_ebook.php?id_ebook=<?php echo $array['id_ebook']; ?>" class="genric-btn info circle">Akses</a>
                     </div>
                 </div>
             </div>

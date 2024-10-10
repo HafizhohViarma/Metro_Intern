@@ -94,8 +94,8 @@
                     echo "<td align='center'>{$row['jadwal']}</td>";
                     echo "<td align='center'>{$row['harga_kelas']}</td>";
                     echo "<td align='center'>
-                            <a href='edit_kelas.php?id={$row['id_kelas']}' class='btn btn-warning'>Edit</a><br><br>
-                            <a href='delete_kelas.php?id={$row['id_kelas']}' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus kelas ini?\");'>Hapus</a>
+                            <a href='edit_kelas.php?id={$row['id_kelas']}' class='genric-btn warning circle'>Edit</a><br><br>
+                            <a href='delete_kelas.php?id={$row['id_kelas']}' class='genric-btn danger circle' onclick='return confirm(\"Apakah Anda yakin ingin menghapus kelas ini?\");'>Hapus</a>
                           </td>";
                     echo "</tr>";
                     $no++;

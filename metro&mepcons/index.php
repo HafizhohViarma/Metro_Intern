@@ -199,21 +199,41 @@
 
     <!--================ Start About Us Area =================-->
     <div class="feature_area mt-5">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-7">
-            <div class="main_title" id="tentang-kami">
-              <h2 class="mb-3">About Us</h2>
-              <p>
-                Tentang Kami
-              </p>
-            </div>
-            <p class="mb-5 text-center">
-              Metro Indonesian Software dan MEPCONS SolusiCAD telah bekerja sama untuk menghadirkan pendidikan teknik yang berkualitas tinggi. Dengan pengalaman panjang dalam dunia teknik dan pendidikan, kami berkomitmen untuk menyediakan pembelajaran yang mendalam dan praktis bagi semua peserta. Dari teori hingga praktik, kami memastikan bahwa setiap materi yang kami tawarkan relevan dengan kebutuhan industri saat ini.
-            </p>
-          </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="main_title" id="tentang-kami">
+          <h2 class="mb-3">About Us</h2>
+          <p>
+            Tentang Kami
+          </p>
         </div>
+        <p class="mb-5 text-center">
+          Metro Indonesian Software dan MEPCONS SolusiCAD telah bekerja sama untuk menghadirkan pendidikan teknik yang berkualitas tinggi. Dengan pengalaman panjang dalam dunia teknik dan pendidikan, kami berkomitmen untuk menyediakan pembelajaran yang mendalam dan praktis bagi semua peserta. Dari teori hingga praktik, kami memastikan bahwa setiap materi yang kami tawarkan relevan dengan kebutuhan industri saat ini.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 kotak untuk foto -->
+    <div class="row text-center">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="image-box">
+          <img src="img/login.jpeg" alt="Foto 1" class="img-fluid">
         </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="image-box">
+          <img src="img/login.jpeg" alt="Foto 2" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="image-box">
+          <img src="img/login.jpeg" alt="Foto 3" class="img-fluid">
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
         <!--================ End About Us Area =================-->
 
         <!-- Start Manfaat -->
@@ -323,23 +343,14 @@
         <?php while($tes = mysqli_fetch_array($result_t)): ?>
         
         <div class="col-12 col-md-4"> 
-          <div class="card border-0 shadow-sm">
-            <div class="card-body p-4 text-center"> 
+          <div class="card border-0">
+            <div class="card-body p-4 text-center shadow-sm mb-2"> 
               <figure>
-                <img class="img-fluid rounded-circle mb-3" loading="lazy" src="img/<?php echo $tes['profil']?>" alt="Profil <?php echo $tes['nama_peserta']?>" style="width: 80px; height: 80px; object-fit: cover;">
-                
-                <figcaption>
-                  <!-- Nama peserta -->
-                  <h5 class="mb-2"><?php echo $tes['nama_peserta']?></h5>
-                  
-                  <!-- Testimoni peserta -->
-                  <blockquote class="blockquote mb-0"><?php echo $tes['testimoni']?></blockquote>
-                </figcaption>
+                <img class="img-fluid" loading="lazy" src="img/<?php echo $tes['profil']?>" alt="Profil <?php echo $tes['nama_peserta']?>" style="width: 100%;">
               </figure>
             </div>
           </div>
         </div>
-
         <?php 
         $counter++;
         // Setiap 3 card, buat slide baru
