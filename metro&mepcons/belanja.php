@@ -130,7 +130,7 @@
                 <?php while ($row = mysqli_fetch_assoc($result_video)): ?>
                     <div class="col-md-4 mt-3">
                         <div class="single-defination">
-                            <img src="img/<?php echo $row['sampul_video']; ?>" alt="<?php echo $row['judul_video']; ?>" style="width: 250px; height: 250px;" class="mb-2">
+                            <img src="img/<?php echo $row['sampul_video']; ?>" alt="<?php echo $row['judul_video']; ?>" style="width:350px; height:350px;" class="mb-2">
                             <h4 class="mb-20"><?php echo $row['judul_video']; ?></h4>
                             <div class="d-flex justify-content-between align-items-center">
                                 <?php if(isset($_SESSION['email'])): ?>
@@ -152,7 +152,7 @@
           <?php while ($row = mysqli_fetch_assoc($result_ebook)): ?>
             <div class="col-md-4 d-inline-block mt-3" style="float: none;">
             <div class="single-defination">
-              <img src="img/<?php echo $row['sampul_ebook']; ?>" alt="<?php echo $row['judul_ebook']; ?>" style="width: 250px; height: 250px;" class="mb-2">
+              <img src="img/<?php echo $row['sampul_ebook']; ?>" alt="<?php echo $row['judul_ebook']; ?>" style="width:350px; height:350px;" class="mb-2">
               <h4 class="mb-20"><?php echo $row['judul_ebook']; ?></h4>
               <div class="d-flex justify-content-between align-items-center">
               <?php if(isset($_SESSION['email'])): ?>

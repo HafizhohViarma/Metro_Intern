@@ -126,7 +126,7 @@
                 <?php while ($row = mysqli_fetch_assoc($result)): ?>
                     <div class="col-md-4 mt-3">
                         <div class="single-defination">
-                            <img src="img/<?php echo $row['sampul_kelas']; ?>" alt="<?php echo $row['judul_kelas']; ?>" style="width: 250px; height: 250px;" class="mb-2">
+                            <img src="img/<?php echo $row['sampul_kelas']; ?>" alt="<?php echo $row['judul_kelas']; ?>" style="width:350px; height:350px;" class="mb-2">
                             <h4 class="mb-20"><?php echo $row['judul_kelas']; ?></h4>
                             <div class="d-flex justify-content-between align-items-center">
                                 <?php if(isset($_SESSION['email'])): ?>

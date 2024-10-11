@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2024 at 11:45 AM
+-- Generation Time: Oct 11, 2024 at 04:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,8 @@ CREATE TABLE `tb_ebook` (
 INSERT INTO `tb_ebook` (`id_ebook`, `sampul_ebook`, `ebook_file`, `judul_ebook`, `deskripsi_ebook`, `harga_ebook`) VALUES
 (2, 'autocad.jpg', 'DAFTAR MENU.pdf', 'Manufacturing for Mechanical Engineering', 'Deskripsi Manufacturing for Mechanical Engineering', '129.000'),
 (4, 'CAD Training.jpeg', 'VARIAN RASA AKU CENDOL KAMU.pdf', 'Training CAD for Beginner', 'Deskripsi Training CAD for Beginner', '99.000'),
-(5, 'autocad.jpg', 'SOAL LATIHAN HITUNG CAMPURAN.pdf', '123', '123', '123.000');
+(5, 'autocad.jpg', 'SOAL LATIHAN HITUNG CAMPURAN.pdf', '123', '123', '123.000'),
+(6, 'images (2).png', 'SPANDUK MUBES.pdf', 'BIM for Beginner', 'lorem lorem lorem lorem lorem lorem lorem lorem loremlorem lorem lorem lorem lorem lorem', '129.000');
 
 -- --------------------------------------------------------
 
@@ -91,8 +92,10 @@ CREATE TABLE `tb_testi` (
 --
 
 INSERT INTO `tb_testi` (`id_testi`, `nama_peserta`, `profil`, `testimoni`) VALUES
-(1, 'Metro Software Indonesia edit', 'LOGO PNP.png', 'Belajar AutoCAD melalui kelas online ini benar-benar menjadi pengalaman yang luar biasa bagi saya. Awalnya, saya merasa sedikit ragu karena ini adalah pertama kalinya saya mengikuti kursus online, terutama untuk perangkat lunak yang kompleks seperti AutoC'),
-(2, 'Hafizhoh Viarma Edit', 'LOGO PNP.png', '(edit kedua) instruktur responsif dan sabar dalam menjawab setiap pertanyaan, memberikan dukungan yang saya butuhkan untuk benar-benar menguasai perangkat lunak ini. Saya sangat menghargai fleksibilitas waktu yang diberikan, memungkinkan saya untuk belaja');
+(26, 'testi1', 'testi1.jpg', 'Materi yang disampaikan sangat lengkap dan jelas. Saya bisa belajar sesuai kecepatan saya sendiri.'),
+(27, 'testi2', 'testi2.jpg', 'Pengajarannya sangat interaktif dan mudah diikuti. Saya merasa lebih percaya diri dengan keahlian baru saya.'),
+(28, 'testi3', 'testi3.jpg', 'Belajar dari mana saja dan kapan saja! Kursus ini benar-benar mengubah cara saya belajar.'),
+(29, 'testi4', 'testi4.jpg', 'Belajar dari mana saja dan kapan saja! Kursus ini benar-benar mengubah cara saya belajar.');
 
 -- --------------------------------------------------------
 
@@ -120,21 +123,14 @@ CREATE TABLE `tb_transaksi` (
 --
 
 INSERT INTO `tb_transaksi` (`id_transaksi`, `id_user`, `id_video`, `id_ebook`, `id_kelas`, `nama_user`, `tipe_produk`, `tgl_transaksi`, `harga`, `payment`, `bukti_bayar`, `status`) VALUES
-(44, 1, 0, 0, 1, 'esa', 'kelas', '2024-08-27', '839.000', 'BCA', 'img/bca.png', 'konfirmasi'),
-(47, 1, 0, 2, 0, 'esa', 'ebook', '2024-08-27', '129.000', 'BCA', 'img/dana.jpg', 'konfirmasi'),
-(48, 1, 3, 0, 0, 'esa', 'video', '2024-08-28', '89.000', 'dana', 'img/bca.png', 'konfirmasi'),
-(49, 1, 8, 0, 0, 'esa', 'video', '2024-08-28', '59.000', 'mandiri', 'img/mandiri.png', 'konfirmasi'),
-(50, 1, 0, 5, 0, 'esa', 'ebook', '2024-08-28', '123.000', 'BCA', 'img/bca.png', 'konfirmasi'),
-(51, 1, 0, 2, 0, 'esa', 'ebook', '2024-08-28', '129.000', 'BCA', 'img/bca.png', 'pending'),
-(53, 1, 0, 0, 1, 'esa', 'kelas', '2024-08-28', '839.000', 'BRI', 'img/mandiri.png', 'konfirmasi'),
-(54, 17, 0, 0, 1, 'Metro Indonesian', 'kelas', '2024-08-28', '839.000', 'mandiri', 'img/mandiri.png', 'konfirmasi'),
-(55, 17, 3, 0, 0, 'Metro Indonesian', 'video', '2024-08-28', '89.000', 'BRI', 'img/bri.png', 'konfirmasi'),
-(56, 17, 0, 4, 0, 'Metro Indonesian', 'ebook', '2024-08-28', '99.000', 'dana', 'img/dana.jpg', 'konfirmasi'),
-(57, 21, 0, 0, 10, 'Metro Software', 'kelas', '2024-08-29', '189.000', 'BCA', 'img/CAD Training.jpeg', 'konfirmasi'),
-(58, 21, 3, 0, 0, 'Metro Software', 'video', '2024-08-29', '89.000', 'mandiri', 'img/mandiri.png', 'konfirmasi'),
-(59, 21, 0, 4, 0, 'Metro Software', 'ebook', '2024-08-29', '99.000', 'dana', 'img/Mafia-Old-Country-1.jpg', 'konfirmasi'),
-(62, 21, 0, 0, 2, 'Metro Software', 'kelas', '2024-09-04', '97.000', 'BCA', 'img/autocad.jpg', 'konfirmasi'),
-(63, 21, 0, 0, 1, 'Metro Software', 'kelas', '2024-09-04', '839.000', 'BRI', 'img/autocad.webp', 'pending');
+(84, 21, 9, 0, 0, 'Metro Software', 'video', '2024-10-02', '199.000', 'mandiri', 'img/Rizki.jpg', 'konfirmasi'),
+(86, 21, 0, 6, 0, 'Metro Software', 'ebook', '2024-10-02', '129.000', 'mandiri', 'img/arid.jpg', 'konfirmasi'),
+(89, 21, 0, 0, 11, 'Metro Software', 'kelas', '2024-10-02', '178.000', 'mandiri', 'img/Budi Setiawan.jpg', 'konfirmasi'),
+(90, 21, 9, 0, 0, 'Metro Software', 'video', '2024-10-02', '199.000', 'BCA', 'img/Rizki.jpg', 'konfirmasi'),
+(91, 21, 0, 2, 0, 'Metro Software', 'ebook', '2024-10-02', '129.000', 'mandiri', 'img/images (6).jpeg', 'konfirmasi'),
+(92, 21, 0, 0, 1, 'Metro Software', 'kelas', '2024-10-02', '839.000', 'mandiri', 'img/Rizki.jpg', 'konfirmasi'),
+(93, 21, 13, 0, 0, 'Metro Software', 'video', '2024-10-10', '129.000', 'mandiri', 'img/images (2).png', 'konfirmasi'),
+(94, 21, 12, 0, 0, 'Metro Software', 'video', '2024-10-10', '289.000', 'BCA', 'img/images (2).png', 'konfirmasi');
 
 -- --------------------------------------------------------
 
@@ -156,7 +152,11 @@ CREATE TABLE `tb_video` (
 --
 
 INSERT INTO `tb_video` (`id_video`, `sampul_video`, `judul_video`, `keterangan_video`, `harga_video`, `video_file`) VALUES
-(1, 'CAD Training.jpeg', 'Dasar Dasar AutoCAD', 'AutoCAD merupakan sebuah software untuk membangun lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem', '298.000', '4443250-hd_1920_1080_25fps.mp4');
+(12, '96_Apartment Plan AutoCAD and Photoshop Files Free Download.jpeg', 'Mechanical Engineering', 'Sebuah penjelasan terkait keamanan dari sebuah produk lorem lorem lorem lorem lorem lorem lorem', '345.000', ''),
+(13, 'images (2).png', 'Dasar Dasar AutoCAD ', 'Deskripsi Video ', '129.000', ''),
+(14, 'wallpaperflare.com_wallpaper.jpg', 'Mechanical', 'ini deskripsi Video', '199.000', ''),
+(15, 'CAD Training.jpeg', 'Mechanical Engineering', 'Deskripsi', '99.000', ''),
+(16, 'images (6).jpeg', 'Dasar Dasar AutoCAD ', 'Sebuah penjelasan terkait keamanan dari sebuah produk lorem lorem lorem lorem lorem lorem lorem', '199.000', '');
 
 -- --------------------------------------------------------
 
@@ -169,18 +169,54 @@ CREATE TABLE `users` (
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `telp` varchar(50) NOT NULL,
+  `profil` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `level` varchar(50) NOT NULL
+  `level` varchar(50) NOT NULL,
+  `otp` varchar(6) DEFAULT NULL,
+  `otp_expiration` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `nama`, `email`, `telp`, `password`, `level`) VALUES
-(21, 'Metro Software', 'software@gmail.com', '085623785368', '$2y$10$vS1HWeF4YtXgZ.UjWIQTSOp4b1cCNSjFlVvgAUVfYPNnU8X7f2hdK', 'user'),
-(28, 'Admin', 'admin@gmail.com', '082149345534', '$2y$10$.WKKzp/rEArHB.g1I.s3Ku/1f0m/akOOMgyjZtQ5KUjMD41bEzGCO', 'admin'),
-(29, 'Hagi Siraj Sumanta', 'hagi@gmail.com', '0000000', '$2y$10$8/8YMu4u1sEPczrMGTt4IOTTRBLTgtUtxK4fGSGsLHKsg4CwsB6wS', 'user');
+INSERT INTO `users` (`id_user`, `nama`, `email`, `telp`, `profil`, `password`, `level`, `otp`, `otp_expiration`) VALUES
+(21, 'Metro Software', 'software@gmail.com', '085623785368', 'instagramMetro.png', '$2y$10$vS1HWeF4YtXgZ.UjWIQTSOp4b1cCNSjFlVvgAUVfYPNnU8X7f2hdK', 'user', NULL, NULL),
+(28, 'Admin', 'admin@gmail.com', '082149345534', '0', '$2y$10$.WKKzp/rEArHB.g1I.s3Ku/1f0m/akOOMgyjZtQ5KUjMD41bEzGCO', 'admin', NULL, NULL),
+(29, 'Hagi Siraj Sumanta', 'hagi@gmail.com', '0000000', '0', '$2y$10$8/8YMu4u1sEPczrMGTt4IOTTRBLTgtUtxK4fGSGsLHKsg4CwsB6wS', 'user', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video_file`
+--
+
+CREATE TABLE `video_file` (
+  `id_file` int(11) NOT NULL,
+  `id_video` int(11) NOT NULL,
+  `sub_judul` varchar(255) NOT NULL,
+  `video_file` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `video_file`
+--
+
+INSERT INTO `video_file` (`id_file`, `id_video`, `sub_judul`, `video_file`) VALUES
+(2, 11, '0', '5495781-uhd_2560_1080_30fps.mp4'),
+(4, 13, '0', '3010398-hd_1920_1080_24fps.mp4'),
+(16, 0, '0', '3010398-hd_1920_1080_24fps.mp4'),
+(17, 0, '0', 'TEMPLATE MUBES.mp4'),
+(18, 0, '0', '3936483-hd_1920_1080_30fps.mp4'),
+(20, 14, '0', '3010398-hd_1920_1080_24fps.mp4'),
+(21, 13, '0', '3010398-hd_1920_1080_24fps.mp4'),
+(44, 12, 'Mwehehe', '3936483-hd_1920_1080_30fps.mp4'),
+(66, 15, 'Sub Judul', '3936483-hd_1920_1080_30fps.mp4'),
+(67, 15, 'Sub Judul 2', '4443250-hd_1920_1080_25fps.mp4'),
+(68, 16, '', '5495781-uhd_2560_1080_30fps.mp4'),
+(72, 12, '', '3010398-hd_1920_1080_24fps.mp4'),
+(73, 12, '', '3936483-hd_1920_1080_30fps.mp4'),
+(74, 12, '', '4443250-hd_1920_1080_25fps.mp4');
 
 --
 -- Indexes for dumped tables
@@ -224,6 +260,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `video_file`
+--
+ALTER TABLE `video_file`
+  ADD PRIMARY KEY (`id_file`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -231,7 +273,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tb_ebook`
 --
 ALTER TABLE `tb_ebook`
-  MODIFY `id_ebook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_ebook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_kelas`
@@ -243,25 +285,31 @@ ALTER TABLE `tb_kelas`
 -- AUTO_INCREMENT for table `tb_testi`
 --
 ALTER TABLE `tb_testi`
-  MODIFY `id_testi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_testi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `tb_video`
 --
 ALTER TABLE `tb_video`
-  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `video_file`
+--
+ALTER TABLE `video_file`
+  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -2,11 +2,11 @@
   include "koneksi.php";
 
   // Query untuk mengambil data dari tabel tb_kelas
-  $query = "SELECT * FROM tb_kelas LIMIT 4";
+  $query = "SELECT * FROM tb_kelas LIMIT 3";
   $result = mysqli_query($koneksi, $query);
-  $query_book = "SELECT * FROM tb_ebook LIMIT 4";
+  $query_book = "SELECT * FROM tb_ebook LIMIT 3";
   $result_book = mysqli_query($koneksi, $query_book);
-  $query_video = "SELECT * FROM tb_video LIMIT 4";
+  $query_video = "SELECT * FROM tb_video LIMIT 3";
   $result_video = mysqli_query($koneksi, $query_video);
   $query_t = "SELECT * FROM tb_testi";
   $result_t = mysqli_query($koneksi, $query_t);
@@ -101,9 +101,9 @@
         <div class="row">
             <?php
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="col-lg-3 col-md-6 mb-4">';
+                echo '<div class="col-lg-4 col-md-6 mb-4">';
                 echo '<div class="single-defination">';
-                echo '<img src="img/' . $row['sampul_kelas'] . '" alt="" style="width:250px; height:250px;" class="mb-2">';
+                echo '<img src="img/' . $row['sampul_kelas'] . '" alt="" style="width:350px; height:350px;" class="mb-2">';
                 echo '<h4 class="mb-20">' . $row['judul_kelas'] . '</h4>';
                 // Cek apakah user sudah login
                 if (isset($_SESSION['email'])) {
@@ -155,9 +155,9 @@
             <div class="row">
               <?php
               while ($data = mysqli_fetch_assoc($result_book)) {
-                  echo '<div class="col-lg-3 col-md-6 mb-4">';
+                  echo '<div class="col-lg-4 col-md-6 mb-4">';
                   echo '<div class="single-defination">';
-                  echo '<img src="img/' . $data['sampul_ebook'] . '" alt="" style="width:250px; height:250px;" class="mb-2">';
+                  echo '<img src="img/' . $data['sampul_ebook'] . '" alt="" style="width:350px; height:350px;" class="mb-2">';
                   echo '<h4 class="mb-20 text-light">' . $data['judul_ebook'] . '</h4>';
                   // Cek apakah user sudah login
                   if (isset($_SESSION['email'])) {
@@ -176,9 +176,9 @@
             <div class="row">
               <?php
               while ($show = mysqli_fetch_assoc($result_video)) {
-                  echo '<div class="col-lg-3 col-md-6 mb-4">';
+                  echo '<div class="col-lg-4 col-md-6 mb-4">';
                   echo '<div class="single-defination">';
-                  echo '<img src="img/' . $show['sampul_video'] . '" alt="" style="width:250px; height:250px;" class="mb-2">';
+                  echo '<img src="img/' . $show['sampul_video'] . '" alt="" style="width:350px; height:350px;" class="mb-2">';
                   echo '<h4 class="mb-20 text-light">' . $show['judul_video'] . '</h4>';
                   // Cek apakah user sudah login
                   if (isset($_SESSION['email'])) {
@@ -344,7 +344,7 @@
         
         <div class="col-12 col-md-4"> 
           <div class="card border-0">
-            <div class="card-body p-4 text-center shadow-sm mb-2"> 
+            <div class="card-body p-4 text-center shadow-sm mb-5"> 
               <figure>
                 <img class="img-fluid" loading="lazy" src="img/<?php echo $tes['profil']?>" alt="Profil <?php echo $tes['nama_peserta']?>" style="width: 100%;">
               </figure>
