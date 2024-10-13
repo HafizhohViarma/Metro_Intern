@@ -218,17 +218,17 @@
     <div class="row text-center">
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="image-box">
-          <img src="img/login.jpeg" alt="Foto 1" class="img-fluid">
+          <img src="img/personal1.png" alt="Foto 1" class="img-fluid">
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="image-box">
-          <img src="img/login.jpeg" alt="Foto 2" class="img-fluid">
+          <img src="img/personal2.png" alt="Foto 2" class="img-fluid">
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="image-box">
-          <img src="img/login.jpeg" alt="Foto 3" class="img-fluid">
+          <img src="img/personal3.png" alt="Foto 3" class="img-fluid">
         </div>
       </div>
       </div>
@@ -331,53 +331,53 @@
             </p>
           </div>
           <!-- Bootstrap Carousel -->
-          <div id="testimoniCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <?php 
-    $active = true; 
-    $counter = 0;   
-    ?>
-    <div class="carousel-item <?php if ($active) { echo 'active'; $active = false; } ?>">
-      <div class="row">
-        
-        <?php while($tes = mysqli_fetch_array($result_t)): ?>
-        
-        <div class="col-12 col-md-4"> 
-          <div class="card border-0">
-            <div class="card-body p-4 text-center shadow-sm mb-5"> 
-              <figure>
-                <img class="img-fluid" loading="lazy" src="img/<?php echo $tes['profil']?>" alt="Profil <?php echo $tes['nama_peserta']?>" style="width: 100%;">
-              </figure>
-            </div>
-          </div>
-        </div>
+              <div id="testimoniCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
         <?php 
-        $counter++;
-        // Setiap 3 card, buat slide baru
-        if ($counter % 3 == 0): ?>
-          </div> 
-        </div> 
-        
-        <div class="carousel-item">
+        $active = true; 
+        $counter = 0;   
+        ?>
+        <div class="carousel-item <?php if ($active) { echo 'active'; $active = false; } ?>">
           <div class="row">
-        <?php endif; ?>
+            
+            <?php while($tes = mysqli_fetch_array($result_t)): ?>
+            
+            <div class="col-12 col-md-6"> 
+              <div class="card border-0">
+                <div class="card-body p-4 text-center shadow-sm mb-5"> 
+                  <figure>
+                    <img class="img-fluid" loading="lazy" src="img/<?php echo $tes['profil']?>" alt="Profil <?php echo $tes['nama_peserta']?>" style="width: 100%;">
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <?php 
+            $counter++;
+            // Setiap 2 card, buat slide baru
+            if ($counter % 2 == 0): ?>
+              </div> 
+            </div> 
+            
+            <div class="carousel-item">
+              <div class="row">
+            <?php endif; ?>
 
-        <?php endwhile; ?>
-      </div>
-    </div> 
-  </div> 
+            <?php endwhile; ?>
+          </div>
+        </div> 
+      </div> 
 
-  <!-- Kontrol Carousel -->
-  <a class="carousel-control-prev" href="#testimoniCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#testimoniCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<!-- Akhir Carousel -->
+      <!-- Kontrol Carousel -->
+      <a class="carousel-control-prev" href="#testimoniCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#testimoniCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- Akhir Carousel -->
         </div>
       </div>
     </div>
