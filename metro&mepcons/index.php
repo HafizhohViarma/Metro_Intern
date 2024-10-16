@@ -344,7 +344,7 @@
             
             <div class="col-12 col-md-6"> 
               <div class="card border-0">
-                <div class="card-body p-4 text-center shadow-sm mb-5"> 
+                <div class="card-body p-4 text-center shadow-sm mb-4"> 
                   <figure>
                     <img class="img-fluid" loading="lazy" src="img/<?php echo $tes['profil']?>" alt="Profil <?php echo $tes['nama_peserta']?>" style="width: 100%;">
                   </figure>
